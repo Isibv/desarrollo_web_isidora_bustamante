@@ -1,0 +1,62 @@
+<!-- formulario para ingresar personas -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ActividaDcc</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h1>ActividaDcc</h1>
+        <h2>Hazte miembro</h2>
+
+      <form onsubmit="return validarMiembro()">
+      <h3>Datos personales</h3>
+
+        <p>Nombres <input id="miembro_nombre" name="miembro_nombre" size="45"></p>
+        <p>Apellidos <input id="miembro_apellido" name="miembro_apellido" size="45"></p>
+        <p>Rut <input id="miembro_rut" name="miembro_rut" size="15"></p>
+        <p>Correo institucional <input id="miembro_correo" name="miembro_correo" size="100"></p>
+        <p>Número de celular <input id="miembro_celular" name="miembro_celular" size="9"></p>
+
+        <h3>Tipo de miembro</h3>
+        <p>
+          <input type="radio" name="tipo_miembro" value="estudiante" onclick="mostrarTipo()"> Estudiante
+          <input type="radio" name="tipo_miembro" value="academico" onclick="mostrarTipo()"> Académico
+          <input type="radio" name="tipo_miembro" value="funcionario" onclick="mostrarTipo()"> Funcionario
+        </p>
+
+        <div id="datos_estudiante" style="display:none;">
+        <p>Nivel
+          <input type="radio" name="nivel_estudiante" value="pregrado"> Pregrado
+          <input type="radio" name="nivel_estudiante" value="postgrado"> Postgrado
+        </p>
+        <p>Año de ingreso
+          <input name="ingreso">
+        </p>
+        </div>
+
+        <div id="datos_academico" style="display:none;">
+         <p>Área
+            <input name="area_academica">
+         </p>
+        <p>Cargo académico
+            <input name="cargo_academico">
+        </p>
+        </div>
+
+        <div id="datos_funcionario" style="display:none;">
+        <p>Unidad
+            <input name="unidad_funcionario">
+        </p>
+        <p>Cargo
+            <input name="cargo_funcionario">
+        </p>
+        </div>
+
+        <p><input type="submit" value="Registrar miembro"></p>
+      </form>
+    
+      <script src="js/miembro.js"></script>
+    </body>
+</html>

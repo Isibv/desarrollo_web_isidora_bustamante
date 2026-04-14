@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ActividaDcc</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h1>ActividaDcc</h1>
+        <h2>Ingresa tu ActividaDcc</h2>
+
+        <form onsubmit="return validarActividad()">
+            <h3>Datos del miembro</h3>
+            <p>Rut del miembro <input id="miembro_rut" name="miembro_rut" size="15"></p>
+            <p>Correo registrado <input id="miembro_correo" name="miembro_correo" size="100"></p>
+
+            <h3>Información de tu actividaDcc</h3>
+            <p>Nombre <input id="miembro_actividad" name="miembro_actividad" size="40"></p>
+            <p>Tipo de actividad</p>
+            <p>
+                <input type="radio" name="tipo_act" value="artistica"> Artística
+                <input type="radio" name="tipo_act" value="deportiva"> Deportiva
+                <input type="radio" name="tipo_act" value="tecnologica"> Tecnológica
+                <input type="radio" name="tipo_act" value="social"> Social
+                <input type="radio" name="tipo_act" value="recreativa"> Recreativa
+            </p>
+
+            <h3>Horarios</h3>
+            <p>Día o días de la actividad <input id="miembro_dia" name="miembro_dia" size="50"></p>
+            <p>Horas dedicadas <input id="miembro_duracion" name="miembro_duracion" size="4"></p>
+
+            <h3>Material adjunto</h3>
+            <p>Foto o video <input id="actividad_archivo" type="file" name="actividad_archivo"></p>
+            <p>Agrega un link de tu actividad</p>
+            <p>Enlace <input id="actividad_link" type="url" name="actividad_link"></p>
+
+            <p><input type="submit" value="Registrar actividad"></p>
+        </form>
+
+        <script src="js/actividad.js"></script>
+    </body>
+</html>

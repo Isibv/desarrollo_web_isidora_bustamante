@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ActividaDcc</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h1>ActividaDcc</h1>
+        <h2>Listado de miembros</h2>
+
+        <form>
+            <h3>Filtrar miembros</h3>
+
+            <p>
+                <input type="radio" name="filtro_tipo" value="todos" onclick="filtrarMiembros()"> Todos
+                <input type="radio" name="filtro_tipo" value="estudiante" onclick="filtrarMiembros()"> Estudiantes
+                <input type="radio" name="filtro_tipo" value="academico" onclick="filtrarMiembros()"> Académicos
+                <input type="radio" name="filtro_tipo" value="funcionario" onclick="filtrarMiembros()"> Funcionarios
+            </p>
+
+            <h3>Ordenar por</h3>
+            <p>
+                <input type="radio" name="orden" value="nombre" onclick="ordenarMiembros()"> Nombre
+                <input type="radio" name="orden" value="apellido" onclick="ordenarMiembros()"> Apellido
+                <input type="radio" name="orden" value="correo" onclick="ordenarMiembros()"> Correo
+            </p>
+        </form>
+
+        <h3>Resultados</h3>
+
+        <div id="resultados">
+            <div class="miembro" data-tipo="academico">
+                <p>Pedro Soto - 11.111.111-1 - pedro@dcc.uchile.cl - 987654321 - Académico</p>
+            </div>
+
+            <div class="miembro" data-tipo="funcionario">
+                <p>Laura Díaz - 22.222.222-2 - laura@dcc.uchile.cl - 998877665 - Funcionario</p>
+            </div>
+
+            <div class="miembro" data-tipo="estudiante">
+                <p>Matías Rojas - 19.876.543-2 - matias@dcc.uchile.cl - 956789123 - Estudiante</p>
+            </div>
+        </div>
+
+        <h3>Páginas</h3>
+        <p>Anterior | 1 | 2 | Siguiente</p>
+
+        <script src="js/listado.js"></script>
+    </body>
+</html>
