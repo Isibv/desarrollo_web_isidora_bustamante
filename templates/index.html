@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ActividaDcc</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% with mensajes = get_flashed_messages() %}
+      {% if mensajes %}
+        {% for msg in mensajes %}
+          <p><strong>{{ msg }}</strong></p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    
+    <h1>ActividaDcc</h1>
+
+    <h2>Menú principal</h2>
+
+    <nav>
+        <a href="/registrar-miembro">Registrar miembro</a><br>
+        <a href="/registrar-actividad">Registrar actividad</a><br>
+        <a href="/listado-miembros">Listado de miembros</a><br>
+        <a href="/estadisticas">Gráficos y estadísticas</a>
+    </nav>
+
+    <h2>Últimos miembros registrados</h2>
+    <p>Total miembros: {{ miembros|length }}</p>
+
+    <ul>
+    {% for miembro in miembros %}
+        <li>{{ miembro.nombres }} {{ miembro.apellidos }} - {{ miembro.tipo }}</li>
+    {% endfor %}
+    </ul>
+
+</body>
+</html>

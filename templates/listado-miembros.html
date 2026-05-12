@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ActividaDcc</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <h1>ActividaDcc</h1>
+        <h2>Listado de miembros</h2>
+
+        <form>
+            <h3>Filtrar miembros</h3>
+
+            <p>
+                <input type="radio" name="filtro_tipo" value="todos" onclick="filtrarMiembros()"> Todos
+                <input type="radio" name="filtro_tipo" value="estudiante" onclick="filtrarMiembros()"> Estudiantes
+                <input type="radio" name="filtro_tipo" value="academico" onclick="filtrarMiembros()"> Académicos
+                <input type="radio" name="filtro_tipo" value="funcionario" onclick="filtrarMiembros()"> Funcionarios
+            </p>
+
+            <h3>Ordenar por</h3>
+            <p>
+                <input type="radio" name="orden" value="nombre" onclick="ordenarMiembros()"> Nombre
+                <input type="radio" name="orden" value="apellido" onclick="ordenarMiembros()"> Apellido
+                <input type="radio" name="orden" value="correo" onclick="ordenarMiembros()"> Correo
+            </p>
+        </form>
+
+        <h3>Resultados</h3>
+
+        <div id="resultados">
+
+        {% for miembro in miembros %}
+
+        <div class="miembro" data-tipo="{{ miembro.tipo }}">
+
+        <p>
+          {{ miembro.nombres }} {{ miembro.apellidos }}
+          -
+          {{ miembro.rut }}
+          -
+          {{ miembro.correo }}
+          -
+          {{ miembro.celular }}
+          -
+          {{ miembro.tipo }}
+         
+        </p>
+
+        </div>
+
+        {% endfor %}
+
+        </div>
+
+        <h3>Páginas</h3>
+        <p>
+          {% if paginacion.has_prev %}
+            <a href="/listado-miembros?pagina={{ paginacion.prev_num }}">Anterior</a>
+          {% else %}
+            Anterior
+          {% endif %}
+
+          | Página {{ paginacion.page }} de {{ paginacion.pages }} |
+
+          {% if paginacion.has_next %}
+            <a href="/listado-miembros?pagina={{ paginacion.next_num }}">Siguiente</a>
+          {% else %}
+            Siguiente
+          {% endif %}
+        </p>
+        <script src="{{ url_for('static', filename='js/listado.js') }}"></script>
+    </body>
+</html>
