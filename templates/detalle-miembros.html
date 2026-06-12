@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle miembro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<h1>Detalle del miembro</h1>
+
+<p><b>Nombre:</b> {{ miembro.nombres }} {{ miembro.apellidos }}</p>
+<p><b>RUT:</b> {{ miembro.rut }}</p>
+<p><b>Correo:</b> {{ miembro.correo }}</p>
+<p><b>Tipo:</b> {{ miembro.tipo }}</p>
+
+<h2>Actividades</h2>
+
+{% if actividades|length == 0 %}
+    <p>Este miembro no tiene actividades registradas.</p>
+{% endif %}
+
+{% for actividad in actividades %}
+    <div class="actividad">
+        <h3>{{ actividad.nombre }}</h3>
+        <p><b>Tipo:</b> {{ actividad.tipo }}</p>
+        <p><b>Días:</b> {{ actividad.dias }}</p>
+        <p><b>Horas:</b> {{ actividad.horas }}</p>
+
+        <h4>Comentarios</h4>
+
+        <div id="comentarios-{{ actividad.id }}"></div>
+
+        <form onsubmit="return agregarComentario(event, {{ actividad.id }})">
+            <p>
+                Nombre:
+                <input type="text" name="nombre" minlength="3" maxlength="80" required>
+            </p>
+
+            <p>
+                Comentario:<br>
+                <textarea name="texto" rows="4" cols="50" minlength="5" required></textarea>
+            </p>
+
+            <button type="submit">Agregar comentario</button>
+        </form>
+
+        <hr>
+    </div>
+{% endfor %}
+
+<p><a href="/">Volver a la portada</a></p>
+
+<script src="{{ url_for('static', filename='js/comentarios.js') }}"></script>
+
+<script>
+
+{% for actividad in actividades %}
+    cargarComentarios({{ actividad.id }});
+{% endfor %}
+
+</script>
+
+</body>
+</html>

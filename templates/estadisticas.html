@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>ActividaDcc</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    </head>
-    <body>
-        <h1>ActividaDcc</h1>
-        <h2>Estadísticas Dcc</h2>
-        <h3>Distribución de miembros</h3>
-        <img src="{{ url_for('static', filename='grafico1.png') }}">
+<head>
+    <title>ActividaDcc</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
 
-        <h3>Distribución de actividades</h3>
-        <img src="{{ url_for('static', filename='grafico2.png') }}">
+    <h1>ActividaDcc</h1>
+    <h2>Estadísticas Dcc</h2>
 
-    </body>
+    <h3>Miembros registrados por día</h3>
+    <div style="width:700px; height:400px;">
+    <canvas id="graficoMiembros"></canvas>
+    </div>
+
+    <h3>Actividades por tipo</h3>
+    <div style="width:350px; height:350px;">
+        <canvas id="graficoTipos"></canvas>
+    </div>
+
+    <h3>Actividades por comuna</h3>
+    <div style="width:700px; height:400px;">
+        <canvas id="graficoComunas"></canvas>
+    </div>
+
+    <p><a href="/">Volver a la portada</a></p>
+
+<script src="{{ url_for('static', filename='js/estadisticas.js') }}"></script>
+
+</body>
 </html>
